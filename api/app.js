@@ -6,6 +6,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 
 const authRoute = require('./src/routes/auth.route')
+const listingRoute = require('./src/routes/listing.route')
 const {connect} = require('./src/db/connection')
 
 // Variables
@@ -18,6 +19,7 @@ app.use(cookieParser())
 
 // Route define
 app.use('/api/v2/user/auth',authRoute)
+app.use('/api/v2/listing',listingRoute)
 
 // Error middleware
 app.use((err,req,res,next)=>{

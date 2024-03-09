@@ -5,6 +5,8 @@ import About from './pages/About'
 import SignIn from './pages/SignIn'
 import SignOut from './pages/SignOut'
 import Header from './components/Header'
+import Profile from './pages/Profile'
+import CreateListing from './pages/CreateListing'
 
 
 function App() {
@@ -16,6 +18,9 @@ function App() {
         <Route path='/about' element={<About/>} />
         <Route path='/sign-in' element={<SignIn/>} />
         <Route path='/sign-out' element={<SignOut/>} />
+        <Route path='/profile' element={<Profile/>} />
+        <Route path='/profile' element={<Profile/>} />
+        <Route path='/create-listing' element={<CreateListing/>} />
       </Routes>
     </BrowserRouter>
   )
