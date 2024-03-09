@@ -1,0 +1,42 @@
+const express = require('express')
+const app = express()
+const dotenv = require('dotenv')
+dotenv.config()
+const cors = require('cors')
+const cookieParser = require('cookie-parser')
+
+const authRoute = require('./src/routes/auth.route')
+const {connect} = require('./src/db/connection')
+
+// Variables
+const port = process.env.PORT || 5000
+
+// middleware
+app.use(express.json())
+app.use(cors())
+app.use(cookieParser())
+
+// Route define
+app.use('/api/v2/user/auth',authRoute)
+
+// Error middleware
+app.use((err,req,res,next)=>{
+    res
+    .json({
+        success:false,
+        statusCode:err.statusCode,
+        message:err.message,
+        error:true
+    })
+})
+
+const start = async() =>{
+    await connect()
+    .then(
+        app.listen(port, console.log(`The server is listening on port ${port}`))
+    )
+    .catch((err)=>{
+        console.log(err)
+    })
+}
+start()
