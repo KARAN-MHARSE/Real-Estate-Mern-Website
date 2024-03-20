@@ -5,7 +5,6 @@ import {useDispatch,useSelector} from 'react-redux'
 
 function Header() {
     const {currentUser} = useSelector(state=>state.user)
-    console.log(currentUser)
 
   return (
     <div className='bg-slate-200 p-4 shadow-md'>
@@ -37,7 +36,7 @@ function Header() {
                            <img src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png" className='size-9 rounded-full object-cover' /> 
                         </Link>
                     ):(
-                        <Link to='/profile'>
+                        <Link to='/sign-in'>
                            <li className='hover:underline'>Sign In</li>
                         </Link>
                     )

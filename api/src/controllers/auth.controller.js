@@ -48,15 +48,19 @@ const signIn = asyncHandler(async(req,res)=>{
     }
 
     const accesskey = await user.generateAccessToken()
+    // console.log(accesskey)
+
+    user.refreshToken =  accesskey
+    await user.save({validateBeforeSave:false})
 
     const options = {
         httpOnly:true,
         secure:true
     }
 
-    res
+    return res
     .status(200)
-    .cookie('acessToken',accesskey,options)
+    .cookie('accessToken',accesskey,options)
     .json({
         success:true,
         user,
@@ -64,4 +68,44 @@ const signIn = asyncHandler(async(req,res)=>{
     })
 })
 
-module.exports = {signUp,signIn}
+const logout = asyncHandler(async(req,res)=>{
+    const userId = req.user?._id;
+
+    const user = await User.findByIdAndUpdate(
+        userId,
+        {
+            $unset:{
+                refreshToken:1
+            }
+        },
+        {
+            new:true
+        }
+    );
+
+    const options ={
+        httpOnly:true,
+        secure:true
+    }
+
+    res
+    .status(200)
+    .clearCookie('accessToken',options)
+    .json({
+        success:true,
+        message:"user logout successfully",
+        error:false
+    })
+})
+
+// pending
+const createProfile = asyncHandler(async(req,res)=>{
+    console.log(req.user._id)
+    // const user = req.user
+    res.send('hello')
+    // res.json({user})
+})
+
+
+
+module.exports = {signUp,signIn,createProfile,logout}

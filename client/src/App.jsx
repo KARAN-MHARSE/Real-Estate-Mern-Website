@@ -7,6 +7,9 @@ import SignOut from './pages/SignOut'
 import Header from './components/Header'
 import Profile from './pages/Profile'
 import CreateListing from './pages/CreateListing'
+import ListingDetail from './pages/ListingDetail'
+import Search from './pages/Search'
+
 
 
 function App() {
@@ -21,6 +24,8 @@ function App() {
         <Route path='/profile' element={<Profile/>} />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/create-listing' element={<CreateListing/>} />
+        <Route path ='/listing/:id' element={<ListingDetail/>} />
+        <Route path='/search' element={Search} />
       </Routes>
     </BrowserRouter>
   )

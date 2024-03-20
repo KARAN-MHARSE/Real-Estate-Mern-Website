@@ -4,18 +4,22 @@ const dotenv = require('dotenv')
 dotenv.config()
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
-
-const authRoute = require('./src/routes/auth.route')
-const listingRoute = require('./src/routes/listing.route')
 const {connect} = require('./src/db/connection')
-
-// Variables
-const port = process.env.PORT || 5000
 
 // middleware
 app.use(express.json())
 app.use(cors())
 app.use(cookieParser())
+
+// Routes
+const authRoute = require('./src/routes/auth.route')
+const listingRoute = require('./src/routes/listing.route')
+
+
+// Variables
+const port = process.env.PORT || 5000
+
+
 
 // Route define
 app.use('/api/v2/user/auth',authRoute)

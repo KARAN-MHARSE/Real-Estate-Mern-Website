@@ -6,6 +6,7 @@ import {signInStart,signInFailure, signInSuccess} from '../redux/user/userSlice'
 function SignIn() {
   const [formData,setFormData] = useState({})
   const {loading,error} = useSelector((state)=>state.user)
+  console.log(loading)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -16,6 +17,7 @@ function SignIn() {
   const handleClick = async(e)=>{
     e.preventDefault()
     try {
+      console.log(loading)
       dispatch(signInStart())
 
     const res = await fetch('http://localhost:6060/api/v2/user/auth/signIn',{

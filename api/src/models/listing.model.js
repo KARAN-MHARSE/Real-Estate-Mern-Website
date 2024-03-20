@@ -47,11 +47,11 @@ const listingSchema = new mongoose.Schema({
     },
     imageUrl:{
         type:String,
-        required:true
+        // required:true
     },
     userRef:{
         type:String,
-        required:true
+        // required:true
     },
 
 },{
