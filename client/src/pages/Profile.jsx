@@ -11,7 +11,7 @@ function Profile() {
 
     useEffect(()=>{
         const start = async() =>{
-            const res = await fetch(`http://localhost:6060/api/v2/listing/listingbyid/${currentUserId}`)
+            const res = await fetch(`http://localhost:6060/api/v2/listing/listingbyuserid/${currentUserId}`)
             const data = await res.json()
             setList(data.listingList)
         }

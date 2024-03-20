@@ -37,7 +37,6 @@ const createListing = asyncHandler(async(req,res)=>{
 })
 
 const getListingById = asyncHandler(async(req,res)=>{
-    console.log(req.params)
     const {userRef} = req.params
 
     const listingList = await Listing.find({userRef})
@@ -57,5 +56,19 @@ const getAllListings = asyncHandler(async(req,res)=>{
     })
 })
 
+const getListingByListingId = asyncHandler(async(req,res)=>{
+    const {listingId} = req.params
+    console.log(listingId)
+    const listing = await Listing.findById(listingId)
 
-module.exports = {createListing,getListingById,getAllListings}
+    res
+    .status(200)
+    .json({
+        success: true,
+        listing,
+        error:false
+    })
+})
+
+
+module.exports = {createListing,getListingById,getAllListings,getListingByListingId}
