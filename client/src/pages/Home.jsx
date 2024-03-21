@@ -9,7 +9,7 @@ function Home() {
 
   useEffect(()=>{
     const start = async ()=>{
-      const res = await fetch('http://localhost:6060/api/v2/listing/allListings');
+      const res = await fetch('https://real-estate-mern-website-u3yx.onrender.com/api/v2/listing/allListings');
       const data = await res.json()
       setAllListings(data.listings)
     }

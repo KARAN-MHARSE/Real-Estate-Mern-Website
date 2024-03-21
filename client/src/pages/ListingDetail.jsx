@@ -8,7 +8,7 @@ function ListingDetail() {
   
   useEffect(()=>{
     const start = async()=>{
-      const res = await fetch(`http://localhost:6060/api/v2/listing/listingById/${id}`)
+      const res = await fetch(`https://real-estate-mern-website-u3yx.onrender.com/api/v2/listing/listingById/${id}`)
       const data = await res.json()
       // console.log(data)
       setListing(data.listing)

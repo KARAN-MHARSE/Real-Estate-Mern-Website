@@ -11,7 +11,7 @@ function Profile() {
 
     useEffect(()=>{
         const start = async() =>{
-            const res = await fetch(`http://localhost:6060/api/v2/listing/listingbyuserid/${currentUserId}`)
+            const res = await fetch(`https://real-estate-mern-website-u3yx.onrender.com/api/v2/listing/listingbyuserid/${currentUserId}`)
             const data = await res.json()
             setList(data.listingList)
         }
@@ -25,7 +25,7 @@ function Profile() {
 
 
     const signOut = async() =>{
-        const res = await fetch('http://localhost:6060/api/v2/user/auth/logout',{
+        const res = await fetch('https://real-estate-mern-website-u3yx.onrender.com/api/v2/user/auth/logout',{
             method:'POST',
             headers:{
                 'Content-Type': 'application/json'

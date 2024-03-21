@@ -63,7 +63,7 @@ function CreateListing() {
             formDataObj.append(key,formData[key])
         }
         formDataObj.append('userRef',currentUser.user._id)
-        const res = await fetch('http://localhost:6060/api/v2/listing/create',{
+        const res = await fetch('https://real-estate-mern-website-u3yx.onrender.com/api/v2/listing/create',{
             method:'POST',
             body:formDataObj
         })

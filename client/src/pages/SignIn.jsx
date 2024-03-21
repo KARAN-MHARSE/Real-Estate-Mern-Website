@@ -20,7 +20,7 @@ function SignIn() {
       console.log(loading)
       dispatch(signInStart())
 
-    const res = await fetch('http://localhost:6060/api/v2/user/auth/signIn',{
+    const res = await fetch('https://real-estate-mern-website-u3yx.onrender.com/api/v2/user/auth/signIn',{
       method: 'POST',
       headers:{
         'Content-Type':'application/json'
